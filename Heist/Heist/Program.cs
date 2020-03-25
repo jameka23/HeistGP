@@ -23,13 +23,13 @@ namespace Heist
             }
 
             Console.WriteLine($"Enter {memberName}'s skill level (must be between 0.0 - 2.0)");
-            var memberCourage = float.Parse(Console.ReadLine());
+            var memberCourage = decimal.Parse(Console.ReadLine());
 
 
-            if(memberCourage < 0.0 || memberCourage > 2.0)
+            if(memberCourage < 0.0m || memberCourage > 2.0m)
             {
                 Console.WriteLine($"Please enter a decimal: ");
-                memberCourage = float.Parse(Console.ReadLine());
+                memberCourage = decimal.Parse(Console.ReadLine());
             }
 
             TeamMember teamMember = new TeamMember(memberName, memberSkill, memberCourage);

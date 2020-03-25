@@ -8,8 +8,8 @@ namespace Heist.Classes
     {
         public string Name { get; set; }
         public int SkillLevel { get; set; }
-        public float CourageFactor { get; set; }
-        public TeamMember(string name, int skill, float courage)
+        public decimal CourageFactor { get; set; }
+        public TeamMember(string name, int skill, decimal courage)
         {
             Name = name;
             SkillLevel = skill;
