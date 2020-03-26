@@ -5,18 +5,15 @@ namespace Heist
 {
     class Program
     {
-        static void Main(string[] args)
+        static public TeamMember CreateSingleTeamMember()
         {
-            Console.WriteLine("Plan Your Heist!");
-
-
             Console.WriteLine("Enter your team member's name:");
             var memberName = Console.ReadLine();
             Console.WriteLine($"Enter {memberName}'s skill level (must be a positive integer 0 - 50)");
             var memberSkill = int.Parse(Console.ReadLine());
 
             //validation
-            if(memberSkill < 0 || memberSkill > 50)
+            if (memberSkill < 0)
             {
                 Console.WriteLine($"Please enter a positive integer 0 - 50");
                 memberSkill = int.Parse(Console.ReadLine());
@@ -26,7 +23,7 @@ namespace Heist
             var memberCourage = decimal.Parse(Console.ReadLine());
 
 
-            if(memberCourage < 0.0m || memberCourage > 2.0m)
+            if (memberCourage < 0.0m || memberCourage > 2.0m)
             {
                 Console.WriteLine($"Please enter a decimal: ");
                 memberCourage = decimal.Parse(Console.ReadLine());
@@ -34,7 +31,19 @@ namespace Heist
 
             TeamMember teamMember = new TeamMember(memberName, memberSkill, memberCourage);
 
-            Console.WriteLine($"Here is your new member: Name: {teamMember.Name}, Skill Level: {teamMember.SkillLevel}, Courage Factor: {teamMember.CourageFactor}! ");
+            return teamMember;
         }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Plan Your Heist!");
+
+            TeamMember teamMate = CreateSingleTeamMember();
+           
+
+            Console.WriteLine($"Here is your new member: Name: {teamMate.Name}, Skill Level: {teamMate.SkillLevel}, Courage Factor: {teamMate.CourageFactor}! ");
+        }
+        
+        
     }
 }
